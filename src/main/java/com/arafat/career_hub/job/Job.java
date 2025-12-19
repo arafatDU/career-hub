@@ -1,12 +1,22 @@
 package com.arafat.career_hub.job;
 
+import jakarta.persistence.*;
+
+@Entity
+//@Table(name = "job_table")
 public class Job {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String title;
     private String description;
     private String minSalary;
     private String maxSalary;
     private String location;
+
+    public Job() {
+
+    }
 
     public Job(Long id, String title, String description, String minSalary, String maxSalary, String location) {
         this.id = id;
