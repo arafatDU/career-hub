@@ -1,6 +1,8 @@
 package com.arafat.career_hub.company;
 
 import com.arafat.career_hub.job.Job;
+import com.arafat.career_hub.review.Review;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 import java.util.List;
@@ -12,8 +14,12 @@ public class Company {
     private Long id;
     private String name;
     private String description;
-    @OneToMany
+    @JsonIgnore
+    @OneToMany(mappedBy = "company")
     private List<Job> jobs;
+
+    @OneToMany
+    private List<Review> reviews;
 
     public Company() {
 
@@ -24,6 +30,14 @@ public class Company {
         this.name = name;
         this.description = description;
         this.jobs = jobs;
+    }
+
+    public List<Review> getReviews() {
+        return reviews;
+    }
+
+    public void setReviews(List<Review> reviews) {
+        this.reviews = reviews;
     }
 
     public Long getId() {
