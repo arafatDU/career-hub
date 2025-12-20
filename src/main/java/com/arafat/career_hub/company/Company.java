@@ -18,7 +18,7 @@ public class Company {
     @OneToMany(mappedBy = "company")
     private List<Job> jobs;
 
-    @OneToMany
+    @OneToMany(mappedBy = "company")
     private List<Review> reviews;
 
     public Company() {
